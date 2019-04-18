@@ -96,6 +96,11 @@ int main()
     msleep(2050);
     create_stop();
 
+    create_spin_CW(200);
+    msleep(935); //down from 936
+    create_stop();
+    
+    
     armup();
 
     //alignline(irsensor,irsensor2,1);
