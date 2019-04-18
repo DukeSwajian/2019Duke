@@ -140,6 +140,38 @@ int main()
     //create_drive_straight(-100);
     //msleep(1000);
 
+    
+    create_drive_straight(-150);
+    msleep(2050);
+    create_stop();
+
+    create_spin_CW(200);
+    msleep(935); //down from 936
+    create_stop();
+    
+    
+    armup();
+
+    //alignline(irsensor,irsensor2,1);
+    
+    create_drive_direct(-151,-150);
+    msleep(3500);
+    create_stop();
+
+    create_drive_straight(300);
+    msleep(800); //1050
+    create_stop();
+
+    create_spin_CCW(200);
+    msleep(924);
+    create_stop();
+
+    armverydown();
+    
+    create_drive_straight(-150); //added
+    msleep(1000);
+    create_stop();
+    
 
     doubleslowservo(leftarmservo,rightarmservo,leftarmservoplacebotguy,rightarmservoplacebotguy); //push down
 	
@@ -249,28 +281,6 @@ void specialdoubleslowservo(int servoport1, int servoport2, int targetposition1,
         changingposition1 = changingposition1 - 2;
         changingposition2 = changingposition2 + 2;
     }
-
-    while (changingposition1 < targetposition1)
-    {
-        msleep(4);
-        set_servo_position(servoport1,changingposition1);
-        changingposition1 = changingposition1 + 2;
-    }
-
-    while (changingposition2 < targetposition2)
-    {
-        msleep(4);
-        set_servo_position(servoport2,changingposition2);
-        changingposition2 = changingposition2 + 2;
-    }
-
-    while (changingposition1 > targetposition1)
-    {
-        msleep(4);
-        set_servo_position(servoport1,changingposition1);
-        changingposition1 = changingposition1 - 2;
-    }
-
     while (changingposition2 > targetposition2)
     {
         msleep(4);
